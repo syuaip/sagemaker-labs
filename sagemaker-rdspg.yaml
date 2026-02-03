@@ -35,11 +35,10 @@ Parameters:
 
   DBEngineVersion:
     Type: String
-    Default: 15.8
+    Default: 17.7
     AllowedValues:
-      - 15.8
-      - 16.3
-      - 17.4
+      - 17.7
+      - 18.1
 
 Resources:
 
@@ -254,7 +253,7 @@ Resources:
     Type: AWS::RDS::DBParameterGroup
     Properties:
       Description: "RDS PostgreSQL Custom Cluster parameter group"
-      Family: postgres15
+      Family: postgres17
       Parameters:
         shared_preload_libraries: "pg_stat_statements"
       Tags:
@@ -305,7 +304,7 @@ Resources:
         - !Ref VPCSecurityGroup
       AllowMajorVersionUpgrade: false
       AutoMinorVersionUpgrade: true
-      EngineVersion: "15.8"
+      EngineVersion: "17.7"
       KmsKeyId: !Ref EncryptionKey
       MultiAZ: false
       StorageType: gp3
